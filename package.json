@@ -12,6 +12,7 @@
     "lint": "eslint .",
     "prepare": "husky install",
     "start": "node index.js",
+    "start-dev": "nodemon --inspect=0.0.0.0:5858 index.js",
     "test": "jest",
     "test-coverage": "yarn test --coverage"
   },
