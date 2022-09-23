@@ -14,7 +14,7 @@ module.exports = ({ config, router }) => {
     .use(compress())
     .use(cors())
     .use(bodyParser({ enableTypes: ['json'] }))
-    .use(router.routes());
+    .use(router.routes(), router.allowedMethods());
 
   const start = () => {
     try {
