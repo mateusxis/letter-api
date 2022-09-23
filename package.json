@@ -1,6 +1,6 @@
 {
   "name": "letter-api",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "description": "Letter api",
   "main": "index.js",
   "author": "mateusxis <mateusx@poli.ufrj.br>",
