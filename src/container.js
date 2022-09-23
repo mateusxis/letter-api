@@ -1,6 +1,6 @@
 const { createContainer, asFunction } = require('awilix');
 
-const router = require('./application/router');
+const router = require('./application/routes');
 const server = require('./application/server');
 
 const container = createContainer();
