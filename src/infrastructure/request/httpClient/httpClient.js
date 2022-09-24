@@ -1,6 +1,6 @@
 const retry = require('async-retry');
 const axios = require('axios');
-const RequestError = require('./RequestError');
+const RequestError = require('../RequestError');
 
 const transformAxiosResponse = (axiosResponse) => ({
   status: axiosResponse?.status,
