@@ -5,7 +5,7 @@ const cors = require('@koa/cors');
 const helmet = require('koa-helmet');
 const KoaLogger = require('koa-logger');
 
-module.exports = ({ config, router }) => {
+module.exports = ({ config, router, letterService }) => {
   const app = new Koa();
 
   app
@@ -16,8 +16,9 @@ module.exports = ({ config, router }) => {
     .use(bodyParser({ enableTypes: ['json'] }))
     .use(router.routes(), router.allowedMethods());
 
-  const start = () => {
+  const start = async () => {
     try {
+      await letterService.init();
       app.listen(config.portServer, () => {
         console.log(`Server listening on ${config.portServer}`);
       });
