@@ -1,6 +1,6 @@
 const nock = require('nock');
 const RequestError = require('./RequestError');
-const request = require('./request');
+const request = require('./request')();
 
 const BASE_PATH = 'http://request';
 
