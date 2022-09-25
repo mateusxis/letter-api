@@ -190,6 +190,25 @@ describe('Service()', () => {
       ]);
     });
 
+    it('should refresh data when return empty array by API', async () => {
+      const url = 'https://0.0.0.0';
+      const timeout = 5000;
+      const identifier = 'Letter Service';
+      const service = new Service({ identifier, url, timeout, request });
+      const spyProcess = jest.spyOn(service, 'process');
+
+      nock(url).get(`/users`).reply(200, []);
+      nock(url).get(`/posts`).reply(200, []);
+
+      await service.refresh();
+
+      const users = [];
+      const posts = {};
+
+      expect(spyProcess).toHaveBeenCalledWith(users, posts);
+      expect(service.getLetters()).toEqual([]);
+    });
+
     it('should throw exception when failed to connect to API', async () => {
       const url = 'https://0.0.0.0';
       const timeout = 5000;

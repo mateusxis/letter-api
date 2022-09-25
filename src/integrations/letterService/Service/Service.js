@@ -1,7 +1,7 @@
 const { formatUsers, formatPosts } = require('./Utils');
 
 class Service {
-  constructor({ identifier, url, timeout, request } = {}) {
+  constructor({ identifier, url, timeout, request }) {
     this.data = [];
     this.identifier = identifier;
     this.url = url;
@@ -45,7 +45,7 @@ class Service {
     });
   }
 
-  process(users = [], posts = {}) {
+  process(users, posts) {
     let data = [];
     users.forEach((user) =>
       data.push({
